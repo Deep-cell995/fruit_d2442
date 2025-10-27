@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fruit Chatbot 🍎</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #f7f9fb, #dff6e3);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #555;
+      margin-bottom: 40px;
+      font-size: 1.1rem;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 15px;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <h1>🍉 Welcome to the Fruit Chatbot</h1>
+  <p>Ask me which fruits to eat based on your mood, health, or time of day!</p>
+
+  <!-- Watson Assistant Chat Integration -->
+  <script>
+    window.watsonAssistantChatOptions = {
+      integrationID: "4ee64018-2740-4bee-be68-3c18a23e7ffe", // The ID of this integration.
+      region: "eu-de", // The region your integration is hosted in.
+      serviceInstanceID: "83a1f670-0a13-4aa1-ba66-16daf69c435d", // The ID of your service instance.
+      onLoad: async (instance) => { await instance.render(); }
+    };
+    setTimeout(function(){
+      const t=document.createElement('script');
+      t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + 
+        (window.watsonAssistantChatOptions.clientVersion || 'latest') + 
+        "/WatsonAssistantChatEntry.js";
+      document.head.appendChild(t);
+    });
+  </script>
+
+  <footer>Powered by IBM Watson Assistant</footer>
+</body>
+</html>
